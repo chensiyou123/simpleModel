@@ -5,8 +5,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/vhr
     username: root
-    password: csyzsj520
-    # 使用druid连接池
+    password: 123456
     type: com.alibaba.druid.pool.DruidDataSource
     filters: stat
     maxActive: 20
@@ -25,8 +24,6 @@ mybatis:
   typeAliasesPackage: com.csy.hrserver.bean
   mapperLocations: classpath:mapper/*.xml
 
-
-  # 打印sql
 
 logging:
     level:
