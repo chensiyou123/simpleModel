@@ -22,6 +22,12 @@ public class CustomMetadataSource implements FilterInvocationSecurityMetadataSou
     AntPathMatcher antPathMatcher = new AntPathMatcher();
 
 
+    /**
+     * 根据当前路径中包含的路径与权限菜单路径对比，如果匹配上则选出该角色
+     * @param o 包含了当前访问的路径
+     * @return
+     * @throws IllegalArgumentException
+     */
     @Override
     public Collection<ConfigAttribute> getAttributes(Object o) throws IllegalArgumentException {
         String requestUrl = ((FilterInvocation) o).getRequestUrl();
