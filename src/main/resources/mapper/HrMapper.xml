@@ -15,12 +15,19 @@
         <result column="userface" property="userface"/>
         <result column="remark" property="remark"/>
     </resultMap>
-    <select id="query" parameterType="java.util.Map" resultType="com.csy.hrserver.bean.Hr">
+    <resultMap id="lazyLoadRoles" type="com.csy.hrserver.bean.Hr" extends="BaseResultMap">
+        <collection property="roles" ofType="com.csy.hrserver.bean.Role" select="com.csy.hrserver.mapper.HrMapper.getRolesByHrId" column="id"></collection>
+    </resultMap>
+    <select id="query" parameterType="java.util.Map" resultMap="lazyLoadRoles">
         select * from  hr t1
         <where>
             <if test="username!=null and username!=''">
                 and t1.username = #{username}
             </if>
         </where>
+    </select>
+
+    <select id="getRolesByHrId" resultType="com.csy.hrserver.bean.Role">
+        SELECT r.* FROM hr_role h,role r where h.rid=r.id AND h.hrid=#{id}
     </select>
 </mapper>

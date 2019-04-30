@@ -20,4 +20,11 @@ public interface HrMapper {
      * @return
      */
     List<Hr>query(Map map);
+
+    /**
+     * 根据用户查询Role
+     * @param id
+     * @return
+     */
+    List<Role> getRolesByHrId(Long id);
 }
