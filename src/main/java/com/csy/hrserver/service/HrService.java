@@ -20,6 +20,7 @@ public class HrService implements UserDetailsService {
 
     @Autowired
     HrMapper hrMapper;
+
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         Map map = new HashMap();
