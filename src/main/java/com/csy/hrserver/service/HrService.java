@@ -27,7 +27,8 @@ public class HrService implements UserDetailsService {
         map.put("username",s);
         List<Hr> hrs = hrMapper.query(map);
         if (CollectionUtils.isEmpty(hrs)) {
-            throw new UsernameNotFoundException("用户名不对");
+            return new Hr();//前后端分离这样处理方便点
+            //throw new UsernameNotFoundException("用户名不对");
         }
         return hrs.get(0);
     }
