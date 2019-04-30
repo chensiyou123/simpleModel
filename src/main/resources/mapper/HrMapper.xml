@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csy.hrserver.mapper.HrMapper">
+    <resultMap id="BaseResultMap" type="com.csy.hrserver.bean.Hr">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="phone" property="phone"/>
+        <result column="telephone" property="telephone"/>
+        <result column="address" property="address"/>
+        <result column="enabled" property="enabled"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="userface" property="userface"/>
+        <result column="remark" property="remark"/>
+    </resultMap>
+    <select id="query" parameterType="java.util.Map" resultType="java.util.Map">
+        select * from  hr t1
+        <where>
+            <if test="name!=null and name!=''">
+                and t1.name = #{name}
+            </if>
+        </where>
+    </select>
+</mapper>
