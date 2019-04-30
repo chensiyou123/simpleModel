@@ -24,3 +24,10 @@ spring:
 mybatis:
   typeAliasesPackage: com.csy.hrserver.bean
   mapperLocations: classpath:mapper/*.xml
+
+
+  # ¥Ú”°sql
+
+logging:
+    level:
+      com.csy.hrserver.mapper: debug

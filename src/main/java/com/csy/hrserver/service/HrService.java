@@ -24,7 +24,7 @@ public class HrService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         Map map = new HashMap();
-        map.put("name",s);
+        map.put("username",s);
         List<Hr> hrs = hrMapper.query(map);
         if (CollectionUtils.isEmpty(hrs)) {
             throw new UsernameNotFoundException("用户名不对");

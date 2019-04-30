@@ -15,11 +15,11 @@
         <result column="userface" property="userface"/>
         <result column="remark" property="remark"/>
     </resultMap>
-    <select id="query" parameterType="java.util.Map" resultType="java.util.Map">
+    <select id="query" parameterType="java.util.Map" resultType="com.csy.hrserver.bean.Hr">
         select * from  hr t1
         <where>
-            <if test="name!=null and name!=''">
-                and t1.name = #{name}
+            <if test="username!=null and username!=''">
+                and t1.username = #{username}
             </if>
         </where>
     </select>
